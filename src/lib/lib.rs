@@ -38,6 +38,7 @@ pub mod environment;
 pub mod exec;
 pub mod realm;
 pub mod syntax;
+pub mod vm;
 
 use crate::{
     builtins::value::ResultValue,
