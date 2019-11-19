@@ -226,8 +226,8 @@ mod tests {
         vm::{self, VM},
     };
 
-    /// Create a clean VM and execute the code
-    pub fn exec(src: &str) -> String {
+    /// Compile some code and run it in a clean VM.
+    pub fn eval(src: &str) -> String {
         let expr = parser_expr(src);
         let instructions = vm::compile(&expr);
 
@@ -243,6 +243,7 @@ mod tests {
 
     #[test]
     fn test_compilation() {
-        assert_eq!(exec("2 + 2"), "4");
+        assert_eq!(eval("2 + 2"), "4");
+        assert_eq!(eval("x = 2; x = x + 1; y = 4; x + y;"), "7");
     }
 }
